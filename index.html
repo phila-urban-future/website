@@ -242,9 +242,12 @@
     }
 
     .project-card {
+      display: block;
       background: #111;
       padding: 2rem;
       border-left: 3px solid var(--green);
+      text-decoration: none;
+      color: inherit;
       transition: background 0.15s;
     }
     .project-card:hover { background: #1a1a1a; }
@@ -414,16 +417,16 @@
         building a more connected, equitable Philadelphia through technology and civic engagement.
       </p>
       <div class="projects-grid">
-        <div class="project-card">
+        <a class="project-card" href="https://codeforphilly.org" target="_blank" rel="noopener">
           <h3>Code for Philly</h3>
           <p>Volunteer-driven civic technology and open data projects for Philadelphia residents.</p>
           <span class="tag">Fiscal Sponsor</span>
-        </div>
-        <div class="project-card">
+        </a>
+        <a class="project-card" href="https://opendataphilly.org" target="_blank" rel="noopener">
           <h3>Open Data Philly</h3>
           <p>Philadelphia's open data portal — making city data accessible to everyone.</p>
           <span class="tag">Fiscal Sponsor</span>
-        </div>
+        </a>
       </div>
     </div>
   </section>
