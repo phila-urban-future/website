@@ -4,160 +4,448 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Center for Philadelphia's Urban Future</title>
-  <meta name="description" content="Building Philadelphia's urban future through technology, research, and civic engagement.">
+  <meta name="description" content="A non-profit project incubator and fiscal sponsor for initiatives at the intersection of urbanism, civic technology, and public sector excellence in Philadelphia.">
   <meta property="og:title" content="Center for Philadelphia's Urban Future">
-  <meta property="og:description" content="Building Philadelphia's urban future through technology, research, and civic engagement.">
+  <meta property="og:description" content="A non-profit project incubator and fiscal sponsor for initiatives at the intersection of urbanism, civic technology, and public sector excellence in Philadelphia.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cpuf.org">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #0c1a2a;
-      --bg-grid: #132238;
-      --text: #e8edf3;
-      --text-muted: #8a9bb5;
-      --accent: #3d8b8a;
-      --accent-light: #5bbfbd;
+      --white:      #FFFFFF;
+      --black:      #000000;
+      --mulberry:   #6A1A49;
+      --green:      #528F6C;
+      --gold:       #DAB51A;
+      --terracotta: #A74F39;
+      --sage:       #91CFA7;
+      --yellow:     #FFE587;
+      --salmon:     #FBB571;
+      --orange:     #D77A32;
+      --text:       #1a1a1a;
+      --muted:      #555;
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background-color: var(--bg);
+      font-family: 'Unbounded', sans-serif;
+      background: var(--white);
       color: var(--text);
-      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 2px solid var(--black);
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
+      justify-content: space-between;
     }
 
-    /* Grid background — nod to Philly's street grid */
-    body::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--bg-grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
-      background-size: 60px 60px;
-      opacity: 0.6;
-      transform: rotate(-8deg) scale(1.4);
-      pointer-events: none;
+    .logo-lockup {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
     }
 
-    /* Subtle radial glow */
-    body::after {
-      content: '';
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(61, 139, 138, 0.12) 0%, transparent 70%);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
+    .logo-lockup img {
+      height: 48px;
+      width: auto;
+      display: block;
     }
 
-    main {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 2rem;
-      max-width: 640px;
-    }
-
-    /* Logo placeholder — swap with <img> when ready */
-    .logo-area {
-      margin-bottom: 2rem;
-    }
-
-    .org-name {
-      font-size: clamp(1.1rem, 3vw, 1.35rem);
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .headline {
-      font-size: clamp(2rem, 6vw, 3.2rem);
+    nav a {
+      font-size: 0.65rem;
       font-weight: 600;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--black);
+      padding: 0.5rem 1rem;
+      border: 1.5px solid var(--black);
+      transition: background 0.15s, color 0.15s;
+    }
+    nav a:hover {
+      background: var(--mulberry);
+      border-color: var(--mulberry);
+      color: var(--white);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5rem 2rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mulberry);
       margin-bottom: 1.5rem;
     }
 
-    .headline em {
-      font-style: normal;
-      color: var(--accent-light);
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+      max-width: 15ch;
     }
 
-    .tagline {
-      font-size: clamp(1rem, 2.5vw, 1.15rem);
+    .hero h1 em {
+      font-style: normal;
+      color: var(--mulberry);
+    }
+
+    .hero-tagline {
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
       font-weight: 300;
-      color: var(--text-muted);
-      line-height: 1.6;
+      color: var(--muted);
+      max-width: 55ch;
+      line-height: 1.8;
       margin-bottom: 2.5rem;
     }
 
-    .divider {
-      width: 48px;
-      height: 2px;
-      background: var(--accent);
-      margin: 0 auto 2rem;
-      border: none;
-    }
-
-    .contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      justify-content: center;
-      align-items: center;
-      font-size: 0.9rem;
-    }
-
-    .contact a {
-      color: var(--accent-light);
+    .hero-cta {
+      display: inline-block;
+      background: var(--mulberry);
+      color: var(--white);
       text-decoration: none;
-      transition: color 0.2s;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      transition: background 0.15s;
+    }
+    .hero-cta:hover { background: var(--black); }
+
+    /* ── DIVIDER BAND ── */
+    .band {
+      background: var(--mulberry);
+      padding: 2rem;
+      overflow: hidden;
+    }
+    .band-ticker {
+      display: flex;
+      gap: 3rem;
+      white-space: nowrap;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .band-ticker span { color: var(--white); }
+
+    /* ── ABOUT ── */
+    .about {
+      padding: 5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
     }
 
-    .contact a:hover {
+    @media (max-width: 640px) {
+      .about { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .about-label {
+      position: sticky;
+      top: 5rem;
+    }
+    .about-label h2 {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mulberry);
+      margin-bottom: 1rem;
+    }
+    .about-label .accent-bar {
+      width: 36px;
+      height: 3px;
+      background: var(--mulberry);
+    }
+
+    .about-body p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.9;
       color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body p strong {
+      font-weight: 700;
+      color: var(--black);
     }
 
+    /* ── FISCAL SPONSORSHIP ── */
+    .fiscal {
+      background: var(--black);
+      color: var(--white);
+      padding: 5rem 2rem;
+    }
+
+    .fiscal-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .fiscal-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.5rem;
+    }
+
+    .fiscal h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      max-width: 20ch;
+    }
+
+    .fiscal > .fiscal-inner > p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      max-width: 55ch;
+      line-height: 1.9;
+      margin-bottom: 3rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5px;
+    }
+
+    .project-card {
+      background: #111;
+      padding: 2rem;
+      border-left: 3px solid var(--green);
+      transition: background 0.15s;
+    }
+    .project-card:hover { background: #1a1a1a; }
+    .project-card h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+    .project-card p {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+    .project-card .tag {
+      display: inline-block;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-top: 1rem;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      padding: 5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      border-top: 2px solid var(--black);
+    }
+
+    .cta-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mulberry);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 50ch;
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+
+    .cta-email {
+      font-size: clamp(0.9rem, 2vw, 1.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--mulberry);
+      text-decoration: none;
+      border-bottom: 2px solid var(--mulberry);
+      padding-bottom: 0.1em;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .cta-email:hover { color: var(--black); border-color: var(--black); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.4);
+      padding: 2rem;
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    footer a:hover { color: var(--white); }
   </style>
 </head>
 <body>
-  <main>
-    <div class="logo-area">
-      <!-- Replace with <img src="logo.svg" alt="CPUF" width="..." height="..."> when logo is ready -->
-    </div>
 
-    <p class="org-name">Center for Philadelphia's Urban Future</p>
-    <h1 class="headline"><em>Urban Future</em></h1>
+  <!-- HEADER -->
+  <header>
+    <a class="logo-lockup" href="#">
+      <img src="logo-horizontal.png" alt="Center for Philadelphia's Urban Future" height="48">
+    </a>
+    <nav>
+      <a href="mailto:phila.urban.future@gmail.com">Contact</a>
+    </nav>
+  </header>
 
-    <p class="tagline">
-      Building Philadelphia's urban future through technology,
-      research, and civic engagement.
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Philadelphia · Urbanism · Civic Technology</p>
+    <h1>
+      Building a more <em>equitable</em> Philadelphia, together.
+    </h1>
+    <p class="hero-tagline">
+      CPUF is a non-profit project incubator and fiscal sponsor for initiatives
+      at the intersection of urbanism, civic technology, and public sector excellence.
     </p>
+    <a class="hero-cta" href="mailto:phila.urban.future@gmail.com">Get in touch</a>
+  </section>
 
-    <hr class="divider">
-
-    <div class="contact">
-      <a href="mailto:phila.urban.future@gmail.com">phila.urban.future@gmail.com</a>
+  <!-- BAND -->
+  <div class="band">
+    <div class="band-ticker">
+      <span>Urbanism</span>
+      <span>·</span>
+      <span>Civic Technology</span>
+      <span>·</span>
+      <span>Public Sector Excellence</span>
+      <span>·</span>
+      <span>Project Incubator</span>
+      <span>·</span>
+      <span>Fiscal Sponsorship</span>
+      <span>·</span>
+      <span>Philadelphia</span>
+      <span>·</span>
     </div>
-  </main>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="about-label">
+      <h2>About CPUF</h2>
+      <div class="accent-bar"></div>
+    </div>
+    <div class="about-body">
+      <p>
+        Founded in 2019 as a project of <strong>5th Square</strong>, the Center for Philadelphia's
+        Urban Future exists to provide strategic capacity and fiscal sponsorship to a wide range
+        of initiatives improving life in Philadelphia.
+      </p>
+      <p>
+        Our small but mighty organization aspires to originate and incubate civic and technology
+        projects that provide spillover benefits for the whole network of urbanist and civic tech
+        organizations and initiatives across the city.
+      </p>
+      <p>
+        Good ideas, projects, and experiments often need lightweight admin support to unlock
+        fundraising potential — one reason we exist is to handle the admin headaches that can
+        present roadblocks to good ideas achieving liftoff.
+      </p>
+      <p>
+        <strong>Watch this space</strong> for original projects, news, and updates.
+      </p>
+    </div>
+  </section>
+
+  <!-- FISCAL SPONSORSHIP -->
+  <section class="fiscal">
+    <div class="fiscal-inner">
+      <p class="fiscal-label">Fiscal Sponsorship</p>
+      <h2>Projects we support</h2>
+      <p>
+        CPUF provides fiscal sponsorship to initiatives that align with our mission of
+        building a more connected, equitable Philadelphia through technology and civic engagement.
+      </p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Code for Philly</h3>
+          <p>Volunteer-driven civic technology and open data projects for Philadelphia residents.</p>
+          <span class="tag">Fiscal Sponsor</span>
+        </div>
+        <div class="project-card">
+          <h3>Open Data Philly</h3>
+          <p>Philadelphia's open data portal — making city data accessible to everyone.</p>
+          <span class="tag">Fiscal Sponsor</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <p class="cta-label">Get Involved</p>
+    <h2>Have a project idea?</h2>
+    <p>
+      If you have a project that might benefit from fiscal sponsorship or strategic support,
+      we'd love to hear from you.
+    </p>
+    <a class="cta-email" href="mailto:phila.urban.future@gmail.com">
+      phila.urban.future@gmail.com
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2025 Center for Philadelphia's Urban Future</span>
+    <a href="mailto:phila.urban.future@gmail.com">phila.urban.future@gmail.com</a>
+  </footer>
+
 </body>
 </html>
