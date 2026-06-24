@@ -62,6 +62,11 @@
       display: block;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
     nav a {
       font-size: 0.65rem;
       font-weight: 600;
@@ -71,12 +76,28 @@
       color: var(--black);
       padding: 0.5rem 1rem;
       border: 1.5px solid var(--black);
-      transition: background 0.15s, color 0.15s;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
     }
     nav a:hover {
       background: var(--mulberry);
       border-color: var(--mulberry);
       color: var(--white);
+    }
+    nav a.donate {
+      background: var(--mulberry);
+      border-color: var(--mulberry);
+      color: var(--white);
+      font-weight: 700;
+    }
+    nav a.donate:hover {
+      background: var(--black);
+      border-color: var(--black);
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 0.75rem 1rem; }
+      .logo-lockup img { height: 38px; }
+      nav a { padding: 0.5rem 0.7rem; }
     }
 
     /* ── HERO ── */
@@ -345,6 +366,7 @@
     </a>
     <nav>
       <a href="mailto:info@cpuf.org">Contact</a>
+      <a class="donate" href="https://opencollective.com/cpuf" target="_blank" rel="noopener">Donate</a>
     </nav>
   </header>
 
